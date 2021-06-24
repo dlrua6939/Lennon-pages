@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LENNON</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <style>
         @font-face {
             font-family: 'MapoFlowerIsland';
@@ -420,7 +421,9 @@
             </div>
         </div>
         <script>
-        history.scrollRestoration = "manual"
+        $(document).ready(function() {
+  $("html,body").animate({scrollTop: 0}, 100); //100ms for example
+});
         </script>
 </body>
 
