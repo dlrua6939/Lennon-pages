@@ -27,12 +27,25 @@
             font-weight: normal;
             font-style: normal;
         }
+        html{
+            scroll-behavior: smooth;
 
+        }
+        @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+        overflow-y: scroll;
+    }
+}
         body {
             font-family: 'MapoFlowerIsland';
             margin: 0;
+            
         }
-
+        a {
+            text-decoration: none;
+            color: black;
+        }
         .alldiv {
             display: flex;
             flex-direction: column;
@@ -63,7 +76,7 @@
             margin-left: 15px;
             margin-right: 15px;
         }
-        
+
         .btn-menu {
             right: 10px;
             position: absolute;
@@ -72,7 +85,7 @@
             height: 45px;
             background-color: transparent;
             margin-top: 12px;
-
+            position: fixed;
         }
 
         .btn-menu-line {
@@ -89,6 +102,7 @@
         .mainpage {
             display: flex;
             flex-direction: column;
+            
         }
 
         .firstline {
@@ -131,7 +145,7 @@
             position: relative;
         }
 
-        
+
 
         .rightpicture {
             width: 350px;
@@ -140,6 +154,7 @@
             right: 200px;
 
         }
+
         .redbox {
             width: 350px;
             height: 350px;
@@ -148,32 +163,142 @@
             top: 0;
             right: 215px;
         }
+
         .mainimg {
             width: 100%;
             box-shadow: 5px 5px 5px 5px #d7d7d7;
         }
-        .textline{
+
+        .textline {
             margin: auto;
             margin-top: 400px;
             font-size: 50px;
             text-align: end;
-            
+
         }
-        .크리에이터{
+
+        .크리에이터 {
             color: rgb(155, 0, 0);
         }
-        .myline{
+
+        .myline {
             margin-top: 150px;
             background-color: rgb(247, 247, 247);
         }
-        .profile{
-            margin-left: 400px;
+
+        .profile {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
             margin-top: 100px;
+            margin-bottom: 250px;
         }
-        .profileimg{
+
+        .profileimg {
             width: 350px;
             border-radius: 50%;
-            margin:auto;
+            margin: auto;
+            margin-right: 60px;
+        }
+
+        .introduct {
+            font-size: 30px;
+            margin: auto;
+            margin-left: 60px;
+        }
+
+        .영상편집 {
+            color: rgb(23, 0, 228)
+        }
+
+        .운동 {
+            color: rgb(207, 3, 180);
+        }
+
+        .열정 {
+            color: crimson;
+        }
+
+        .skill {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+
+        .skilltext {
+            display: flex;
+            font-size: 40px;
+            margin: auto;
+            margin-bottom: 50px;
+        }
+
+        .skillimg {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-bottom: 150px;
+            width: 70%;
+        }
+
+        .iconimgs {
+            width: 100px;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin: auto;
+        }
+
+        .iconimg {
+            width: 100%;
+            margin-bottom: 20px;
+
+        }
+
+        .iocnname {
+            text-align: center;
+        }
+
+        .BLCline {
+            display: flex;
+            background-color: rgb(236, 235, 235);
+            flex-direction: column;
+        }
+
+        .blcproject {
+            display: flex;
+            text-align: center;
+            font-size: 40px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .blccontent {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .blclogo {
+            display: flex;
+            width: 300px;
+            height: 300px;
+            border: solid;
+            border-radius: 50%;
+        }
+
+        .logoimg {
+            margin: auto;
+            width: 90%;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            font-size: 30px;
+            margin: auto;
+            margin-left: 100px;
+            line-height: 200%;
             
         }
     </style>
@@ -182,13 +307,19 @@
 <body>
     <div class="alldiv">
         <Div class="head">
+            <a href="#firstline">
             <div class="logo">
                 <div class="logotext">레넌</div>
             </div>
+            </a>
             <div class="empty"></div>
             <div class="headmenu">
+                <a href="#myline">
                 <div class="headmenu_text">레넌을 소개합니다</div>
+                </a>
+                <a href="#content">
                 <div class="headmenu_text">BLC</div>
+                </a>
                 <div class="headmenu_text">지나온 길</div>
             </div>
 
@@ -201,10 +332,10 @@
             </a>
         </Div>
         <div class="mainpage">
-            <div class="firstline">
+            <div class="firstline" id="firstline">
                 <div class="leftbigbox">
                     <div class="leftpicture">
-                        <img class="mainimg"src="./leftpicture.png">
+                        <img class="mainimg" src="./leftpicture.png">
                     </div>
                     <div class="yellobox"></div>
 
@@ -221,7 +352,7 @@
                         <img class="mainimg" src="./rightpicture.png">
                     </div>
                     <div class="redbox"></div>
-                    
+
                 </div>
             </div>
             <div class="textline">
@@ -229,17 +360,60 @@
                 <div>난 배고픈 <strong class="크리에이터">크리에이터</strong>가 될래!</div>
                 <div>안녕하세요! 레넌입니다!</div>
             </div>
-            <div class="myline">
+            <div class="myline" id="myline">
                 <div class="profile">
-                    <img class="profileimg"src="./프사각.jpg">
+                    <img class="profileimg" src="./프사각.jpg">
+                    <div class="introduct">
+                        <div>저는 2004년 안양에서 태어난 레넌입니다.</div>
+                        <div><strong class="영상편집">영상편집</strong>과 <strong class="운동">운동</strong>을 좋아합니다.</div>
+                        <div>제가 좋아하는 일에 대해서는</div>
+                        <div>그 누구보다 <strong class="열정">열정</strong>을 가지고 임합니다.</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skilltext">
+                        <div>이런 것들을 사용할 줄 알아요!</div>
+                    </div>
+                    <div class="skillimg">
+                        <div class="iconimgs">
+                            <img class="iconimg" src="./premiere icon.png">
+                            <div class="iocnname">Premiere pro</div>
+                        </div>
+                        <div class="iconimgs">
+                            <img class="iconimg" src="./photoshop.png">
+                            <div class="iocnname">Photoshop</div>
+                        </div>
+                        <div class="iconimgs">
+                            <img class="iconimg" src="./after effect.png">
+                            <div class="iocnname">After effect</div>
+                        </div>
+                        <div class="iconimgs">
+                            <img class="iconimg" src="./visul studio code.png">
+                            <div class="iocnname">Visul studio code</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="BLCline"></div>
-            <div class="histroyline"></div>
-            <div class="contact"></div>
+            <div class="BLCline">
+                <div class="blcproject">BLC-프로젝트</div>
+                <div class="blccontent">
+                    <div class="blclogodiv">
+                        <div class="blclogo">
+                            <img class="logoimg" src="./BLC_Logo.png">
+                        </div>
+                    </div>
+                    <div class="content" id="content">
+                        <div>제가 속한 BLC팀은</div>
+                        <div>비만과 건강의 관계를 학습하고</div>
+                        <div>다이어트와’ 건강’을 위한</div>
+                        <div>솔루션을 연구중입니다</div>
+                    </div>
+                </div>
+                <div class="histroyline"></div>
+                <div class="contact"></div>
 
+            </div>
         </div>
-    </div>
 </body>
 
 </html>
