@@ -31,6 +31,7 @@
 
         html {
             scroll-behavior: smooth;
+            cursor: url(./cursor.cur), auto;
 
         }
 
@@ -39,6 +40,11 @@
                 scroll-behavior: auto;
                 overflow-y: scroll;
             }
+        }
+
+        a,
+        a:link {
+            cursor: url('./cursor2.cur'), auto;
         }
 
         body {
@@ -291,11 +297,23 @@
             height: 300px;
             border: solid;
             border-radius: 50%;
+            transition: 0.2s;
+        }
+        .blclink{
+            display: none;
         }
 
         .logoimg {
             margin: auto;
             width: 90%;
+            transition: 0.2s;
+        }
+        .blclogo:hover{
+            background-color: black;
+            opacity: 90%;
+        }
+        .blclogo:hover>.logoimg{
+            width: 70%;
         }
 
         .content {
@@ -313,21 +331,33 @@
             flex-direction: column;
             background-color: rgb(223, 221, 221);
         }
-        .historytitle{
+
+        .historytitle {
             display: flex;
             text-align: center;
             font-size: 40px;
             margin: auto;
             margin-top: 100px;
         }
-        .historycontent{
+
+        .historycontent {
             display: flex;
             flex-direction: column;
         }
-        .firsthistory{
+
+        .firsthistory {
             display: flex;
-            flex-direction: row;
-            height: 300px;
+            margin-top: 100px;
+            flex-direction: column;
+            font-size: 28px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .historybutton {
+            margin: auto;
+            margin-bottom: 30px;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -348,7 +378,9 @@
                 <a href="#content">
                     <div class="headmenu_text">BLC</div>
                 </a>
-                <div class="headmenu_text">지나온 길</div>
+                <a href="#historyline">
+                    <div class="headmenu_text">지나온 길</div>
+                </a>
             </div>
 
             <a href="javascript:;" class="btn-menu">
@@ -425,30 +457,57 @@
             <div class="BLCline">
                 <div class="blcproject">BLC-프로젝트</div>
                 <div class="blccontent">
-                    <div class="blclogodiv">
-                        <div class="blclogo">
-                            <img class="logoimg" src="./BLC_Logo.png">
+                    <a href="https://charliekim0821.github.io/BLC-Web/index.html">
+                        <div class="blclogodiv">
+                            <div class="blclink">보러가기</div>
+                            <div class="blclogo">
+                                <img class="logoimg" src="./BLC_Logow.png">
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="content" id="content">
                         <div>제가 속한 BLC팀은</div>
                         <div>비만과 건강의 관계를 학습하고</div>
-                        <div>다이어트와’ 건강’을 위한</div>
+                        <div>다이어트와 '건강'을 위한</div>
                         <div>솔루션을 연구중입니다</div>
                     </div>
                 </div>
-                <div class="historyline">
+                <div class="historyline" id="historyline">
                     <div class="historytitle">지나온 길</div>
                     <div class="historycontent">
                         <div class="firsthistory">
-                            <div class="history1"></div>
+                            <div>저는 학교에서 개인 또는 팀을 꾸려서</div>
+                            <div>개인, 혹은 사회의 문제를 해결하는</div>
+                            <div>프로젝트를 진행합니다</div>
                         </div>
                     </div>
+                    <a class="historybutton" href="./histoy.html">
+                        <div>
+                            -> 보러가기
+                        </div>
+                    </a>
                 </div>
                 <div class="contact"></div>
-
             </div>
         </div>
+        <div id="cursor">
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="my-blur" />
+                    <feColorMatrix in="my-blur" mode="matrix" values="
+                          1 0 0 0 0
+                          0 1 0 0 0
+                          0 0 1 0 0
+                          0 0 0 20 -8" result="my-gooey" />
+                </filter>
+            </defs>
+        </svg>
         <script>
             $(document).ready(function () {
                 $("html,body").animate({ scrollTop: 0 }, 100); //100ms for example
