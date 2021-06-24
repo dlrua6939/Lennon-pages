@@ -307,6 +307,28 @@
             line-height: 200%;
 
         }
+
+        .historyline {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(223, 221, 221);
+        }
+        .historytitle{
+            display: flex;
+            text-align: center;
+            font-size: 40px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        .historycontent{
+            display: flex;
+            flex-direction: column;
+        }
+        .firsthistory{
+            display: flex;
+            flex-direction: row;
+            height: 300px;
+        }
     </style>
 </head>
 
@@ -415,15 +437,22 @@
                         <div>솔루션을 연구중입니다</div>
                     </div>
                 </div>
-                <div class="histroyline"></div>
+                <div class="historyline">
+                    <div class="historytitle">지나온 길</div>
+                    <div class="historycontent">
+                        <div class="firsthistory">
+                            <div class="history1"></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="contact"></div>
 
             </div>
         </div>
         <script>
-        $(document).ready(function() {
-  $("html,body").animate({scrollTop: 0}, 100); //100ms for example
-});
+            $(document).ready(function () {
+                $("html,body").animate({ scrollTop: 0 }, 100); //100ms for example
+            });
         </script>
 </body>
 
