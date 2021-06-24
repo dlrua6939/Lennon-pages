@@ -27,25 +27,30 @@
             font-weight: normal;
             font-style: normal;
         }
-        html{
+
+        html {
             scroll-behavior: smooth;
 
         }
+
         @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-        overflow-y: scroll;
-    }
-}
+            html {
+                scroll-behavior: auto;
+                overflow-y: scroll;
+            }
+        }
+
         body {
             font-family: 'MapoFlowerIsland';
             margin: 0;
-            
+
         }
+
         a {
             text-decoration: none;
             color: black;
         }
+
         .alldiv {
             display: flex;
             flex-direction: column;
@@ -102,7 +107,7 @@
         .mainpage {
             display: flex;
             flex-direction: column;
-            
+
         }
 
         .firstline {
@@ -299,7 +304,7 @@
             margin: auto;
             margin-left: 100px;
             line-height: 200%;
-            
+
         }
     </style>
 </head>
@@ -308,17 +313,17 @@
     <div class="alldiv">
         <Div class="head">
             <a href="#firstline">
-            <div class="logo">
-                <div class="logotext">레넌</div>
-            </div>
+                <div class="logo">
+                    <div class="logotext">레넌</div>
+                </div>
             </a>
             <div class="empty"></div>
             <div class="headmenu">
                 <a href="#myline">
-                <div class="headmenu_text">레넌을 소개합니다</div>
+                    <div class="headmenu_text">레넌을 소개합니다</div>
                 </a>
                 <a href="#content">
-                <div class="headmenu_text">BLC</div>
+                    <div class="headmenu_text">BLC</div>
                 </a>
                 <div class="headmenu_text">지나온 길</div>
             </div>
@@ -414,6 +419,9 @@
 
             </div>
         </div>
+        <script>
+        history.scrollRestoration = "manual"
+        </script>
 </body>
 
 </html>
