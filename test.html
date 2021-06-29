@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #slider {
+            width: 100%;
+            background-color: red;
+            height: 100%;
+            position: fixed;
+        }
+
+        #overflow {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: blue;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slider"></div>
+    <div id="overflow"></div>
+
+    <script>
+        var ovf, slider;
+        $(function () {
+            ovf = this.getElementById("overflow");
+            slider = this.getElementById("slider");
+            winResize();
+            $(window).bind({ resize: winResize, scroll: winScroll });
+        });
+        function winResize() {
+            ovf.style.top = slider.offsetHeight + "px";
+        }
+
+        function winScroll() {
+            var op = 1 - (window.pageYOffset / slider.offsetHeight);
+            slider.style.opacity = op;
+        }
+
+    </script>
+</body>
+
+</html>

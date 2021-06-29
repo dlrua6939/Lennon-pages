@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="short icon" href="./favicon.ico">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'MapoFlowerIsland';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '116angmuburi';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.0/116angmuburi.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'KOTRA_SONGEULSSI';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_SONGEULSSI.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            cursor: url(./cursor2.cur), auto;
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+                overflow-y: scroll;
+            }
+        }
+
+        a,
+        a:link {
+            cursor: url('./cursor.cur'), auto;
+        }
+
+        body {
+            font-family: 'MapoFlowerIsland';
+            margin: 0;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .alldiv {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .head {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 60px;
+            background-color: rgb(255, 252, 208);
+        }
+
+        .logo {
+            margin: 15px 15px 15px 30px;
+            font-size: 25px;
+        }
+
+        .headmenu {
+            display: flex;
+            flex-direction: row;
+            margin: 20px 20px 20px 20px;
+            right: 50px;
+            position: absolute;
+        }
+
+        .headmenu_text {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .btn-menu {
+            right: 10px;
+            position: absolute;
+            float: right;
+            width: 60px;
+            height: 45px;
+            background-color: transparent;
+            margin-top: 12px;
+            position: fixed;
+        }
+
+        .btn-menu-line {
+            background: black;
+            margin: auto;
+            margin-top: 5px;
+            margin-bottom: 4px;
+            width: 30px;
+            height: 4px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .mainpage {
+            display: flex;
+            flex-direction: column;
+            height: 1080px;
+        }
+
+        .whoisit {
+            margin: auto;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .secondepage {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(250, 250, 250);
+        }
+
+        .mbti {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 200px;
+        }
+
+        .mbtiimg {
+            width: 700px;
+            margin-right: 70px;
+            margin-bottom: 70px;
+        }
+
+        .mbtitext {
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .INFP {
+            display: flex;
+            font-size: 60px;
+
+        }
+
+        .mbtititle {
+            font-size: 40px;
+            line-height: 250%;
+        }
+
+        .hobby {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .hobbyimg {
+            width: 700px;
+            margin: auto;
+            margin-left: 70px;
+            margin-bottom: 70px;
+        }
+
+        .hobbytext {
+            margin: auto;
+            margin-top: 20px;
+            text-align: end;
+        }
+
+        .취미 {
+            font-size: 60px;
+        }
+
+        .hobbytitle {
+            font-size: 37px;
+            line-height: 250%;
+        }
+
+        .Motto {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .mottoimg {
+            width: 500px;
+            margin-right: 70px;
+            margin-bottom: 70px;
+        }
+
+        .mottotext {
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .좌우명 {
+            display: flex;
+            font-size: 60px;
+        }
+
+        .mottotitle {
+            font-size: 37px;
+            line-height: 190%;
+        }
+
+        .thirdpage {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(247, 247, 247);
+        }
+
+        .lennon {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .lennonimg {
+            width: 350px;
+            margin-right: 30px;
+        }
+
+        .lennontext {
+            margin-top: 30px;
+        }
+
+        .레넌 {
+            font-size: 60px;
+        }
+
+        .lennontitle {
+            font-size: 40px;
+            line-height: 160%;
+            margin-top: 10px;
+        }
+
+        .personality {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .personalitytext {
+            text-align: center;
+        }
+
+        .personalityimg {
+            width: 450px;
+            margin: auto;
+            margin-left: 70px;
+            margin-bottom: 70px;
+        }
+
+        .성격 {
+            font-size: 70px;
+        }
+
+        .personalitytitle {
+            font-size: 45px;
+            line-height: 160%;
+            margin-top: 20px;
+        }
+
+        .fourthpage {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(236, 235, 235);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .contentimg {
+            width: 700px;
+            margin: auto;
+        }
+        .contenttitle{
+            text-align: center;
+            margin-bottom: 100px;
+            font-size: 30px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="alldiv">
+        <Div class="head">
+            <a href="./index.html">
+                <div class="logo">
+                    <div class="logotext">레넌</div>
+                </div>
+            </a>
+            <div class="empty"></div>
+            <div class="headmenu">
+                <a href="#myline">
+                    <div class="headmenu_text">레넌을 소개합니다</div>
+                </a>
+                <a href="https://charliekim0821.github.io/BLC-Web/index.html">
+                    <div class="headmenu_text">BLC</div>
+                </a>
+                <a href="#historyline">
+                    <div class="headmenu_text">지나온 길</div>
+                </a>
+            </div>
+
+            <a href="javascript:;" class="btn-menu">
+                <div class="line-wrapper">
+                    <div class="btn-menu-line"></div>
+                    <div class="btn-menu-line"></div>
+                    <div class="btn-menu-line"></div>
+                </div>
+            </a>
+        </Div>
+        <div>
+            <div class="mainpage">
+                <div class="whoisit">레넌이 누구야?</div>
+            </div>
+            <div class="secondepage">
+                <div class="mbti">
+                    <div class="mbtiarea">
+                        <img class="mbtiimg" src="./서울대입구.png">
+                    </div>
+                    <div class="mbtitext">
+                        <div class="INFP">INFP</div>
+                        <div class="mbtititle">
+                            <div>틀에 갇힌 학습이나 활동을 싫어함</div>
+                            <div>자존심만 건들지 않으면</div>
+                            <div>누구보다 관대함</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hobby">
+                    <div class="hobbytext">
+                        <div class="취미">취미</div>
+                        <div class="hobbytitle">
+                            <div>영상편과 맨몸운동을 좋아합니다</div>
+                            <div>영상편집은 혼자 하는 것을 더 선호하고</div>
+                            <div>운동은 다같이 하는 것을 더 좋아합니다</div>
+                        </div>
+                    </div>
+                    <div class="hobbyarea">
+                        <img class="hobbyimg" src="./카페.png">
+                    </div>
+
+                </div>
+                <div class="Motto">
+                    <div class="mottoarea">
+                        <img class="mottoimg" src="./디엠지.png">
+                    </div>
+                    <div class="mottotext">
+                        <div class="좌우명">좌우명</div>
+                        <div class="mottotitle">
+                            <div>과거에 머무르는 것은 엘리베이터를 타는 것 만큼 쉽고</div>
+                            <div>미래를 그리는 것은 계단을 오르는 것처럼 힘들어,</div>
+                            <div>하지만 계단은 끝까지 오르면 옥상에 올라가</div>
+                            <div>넓은 하늘을 볼 수 있어</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="thirdpage">
+                <div class="lennon">
+                    <Div class="lennonarea">
+                        <img class="lennonimg" src="./레너언.png">
+                    </Div>
+                    <div class="lennontext">
+                        <div class="레넌">레넌</div>
+                        <div class="lennontitle">
+                            <div>신장: 169cm</div>
+                            <div>몸무게: 59~60kg</div>
+                            <div>혈액형: A형</div>
+                            <div>생년월일: 2004.8.31.</div>
+                            <div>별자리: 처녀자리</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personality">
+                    <div class="personalitytext">
+                        <div class="성격">성격</div>
+                        <div class="personalitytitle">
+                            <div>저는 상대방과</div>
+                            <div>친하고 안친하다의 관계가</div>
+                            <Div>고스란히 드러납니다.</Div>
+                            <div>친한 관계에서는</div>
+                            <div>산만하고 외향적인 성격이지만</div>
+                            <div>잘 모르는 관계에서는</div>
+                            <div>소심하고 내향적으로 변합니다.</div>
+                        </div>
+                    </div>
+                    <div class="personalityarea">
+                        <img class="personalityimg" src="./거울셀카.png">
+                    </div>
+                </div>
+            </div>
+            <div class="fourthpage">
+                <div class="content">
+                    <div class="contentarea">
+                        <img class="contentimg" src="./쉐도우파이터.png">
+                    </div>
+                    <div class="contenttitle">
+                        <div>저는 반복적인 활동에 쉽게 질립니다.</div>
+                        <div>오히려 어렵고 복잡하지만 새로운 것을 추구하죠.</div>
+                        <div>세상 만사에 호기심을 갖고,</div>
+                        <div>이해하기 전까지는 절대 그것에 대해 관심을 놓지않습니다.</div>
+                        <div>저의 관심사와 관련이 있다면</div>
+                        <div>꽤 오랫동안 더 자세히 이해하려하죠.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

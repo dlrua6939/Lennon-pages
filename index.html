@@ -181,12 +181,14 @@
             width: 100%;
             box-shadow: 5px 5px 5px 5px #d7d7d7;
         }
-        .textline{
+
+        .textline {
             background-color: rgb(250, 250, 250);
             display: flex;
             flex-direction: row;
             margin-top: 400px;
         }
+
         .textlinecontent {
             margin: auto;
             margin-top: 100px;
@@ -201,11 +203,11 @@
         }
 
         .myline {
-            
+
             background-color: rgb(247, 247, 247);
         }
 
-        .profile {
+        .profiles {
             display: flex;
             flex-direction: row;
             margin: auto;
@@ -213,11 +215,29 @@
             margin-bottom: 250px;
         }
 
-        .profileimg {
-            width: 350px;
+        .profilesimg {
+            width: 100%;
             border-radius: 50%;
             margin: auto;
+            transition: 0.2s;
+        }
+
+        .profilepages {
+            display: flex;
+            margin: auto;
+            justify-self: center;
             margin-right: 60px;
+            width: 350px;
+            height: 350px;
+            transition: 0.2s;
+            border-radius: 50%;
+            border: solid;
+        }
+
+        .profilepages:hover>.profilesimg {
+            width: 80%;
+            margin: auto;
+            text-align: center;
         }
 
         .introduct {
@@ -310,7 +330,8 @@
             border-radius: 50%;
             transition: 0.2s;
         }
-        .blclink{
+
+        .blclink {
             display: none;
         }
 
@@ -319,11 +340,13 @@
             width: 90%;
             transition: 0.2s;
         }
-        .blclogo:hover{
+
+        .blclogo:hover {
             background-color: black;
             opacity: 90%;
         }
-        .blclogo:hover>.logoimg{
+
+        .blclogo:hover>.logoimg {
             width: 70%;
         }
 
@@ -372,12 +395,41 @@
             text-align: center;
             transition: 0.2s;
         }
+
         .historybutton:hover {
             font-size: 30px;
             margin-bottom: 18px;
         }
-        .contact{
+
+        .contactline {
+            display: flex;
+            flex-direction: column;
             background-color: rgb(201, 199, 199);
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .myname {
+            font-size: 30px;
+            margin: auto;
+            margin-right: 10px;
+        }
+
+        .contactnumber {
+            font-size: 20px;
+            margin: auto;
+            margin-left: 10px;
+            line-height: 200%;
+        }
+
+        svg {
+            display: none;
         }
     </style>
 </head>
@@ -385,17 +437,17 @@
 <body>
     <div class="alldiv">
         <Div class="head">
-            <a href="#firstline">
+            <a href="./index.html">
                 <div class="logo">
                     <div class="logotext">레넌</div>
                 </div>
             </a>
             <div class="empty"></div>
             <div class="headmenu">
-                <a href="#myline">
+                <a href="./introduct.html">
                     <div class="headmenu_text">레넌을 소개합니다</div>
                 </a>
-                <a href="#content">
+                <a href="https://charliekim0821.github.io/BLC-Web/index.html">
                     <div class="headmenu_text">BLC</div>
                 </a>
                 <a href="#historyline">
@@ -436,15 +488,17 @@
                 </div>
             </div>
             <div class="textline">
-            <div class="textlinecontent">
-                <div>배부른 공무원?</div>
-                <div>난 배고픈 <strong class="크리에이터">크리에이터</strong>가 될래!</div>
-                <div>안녕하세요! 레넌입니다!</div>
-            </div>
+                <div class="textlinecontent">
+                    <div>배부른 공무원?</div>
+                    <div>난 배고픈 <strong class="크리에이터">크리에이터</strong>가 될래!</div>
+                    <div>안녕하세요! 레넌입니다!</div>
+                </div>
             </div>
             <div class="myline" id="myline">
-                <div class="profile">
-                    <img class="profileimg" src="./me.jpg">
+                <div class="profiles">
+                    <a class="profilepages" href=./introduct.html>
+                        <img class="profilesimg" src="./me.jpg">
+                    </a>
                     <div class="introduct">
                         <div>저는 2004년 안양에서 태어난 레넌입니다.</div>
                         <div><strong class="영상편집">영상편집</strong>과 <strong class="운동">운동</strong>을 좋아합니다.</div>
@@ -513,8 +567,8 @@
                     <div class="contact">
                         <div class="myname">레넌</div>
                         <div class="contactnumber">
-                            <div>E-mail: dlrua6314@naver.com</div>
-                            <div>Tel: 010-6314-9878</div>
+                            <div class="email">E-mail: dlrua6314@naver.com</div>
+                            <div class="tel">Tel: 010-6314-9878</div>
                         </div>
                     </div>
                 </div>
