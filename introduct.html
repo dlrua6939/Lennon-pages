@@ -29,7 +29,16 @@
             font-weight: normal;
             font-style: normal;
         }
+        html,
+        body {
+            height: auto;
+        }
 
+        .panel {
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
         html {
             scroll-behavior: smooth;
             cursor: url(./cursor2.cur), auto;
@@ -67,9 +76,15 @@
         .head {
             display: flex;
             flex-direction: row;
+            position: fixed;
+            z-index: 1000;
             width: 100%;
             height: 60px;
-            background-color: rgb(255, 252, 208);
+            opacity: 30%;
+            transition: 0.1s;
+        }
+        .head:hover{
+            opacity: 100%;
         }
 
         .logo {
@@ -136,11 +151,19 @@
             margin: auto;
             margin-top: 200px;
         }
-
-        .mbtiimg {
+        .mbtiarea{
             width: 700px;
+            margin: auto;
             margin-right: 70px;
             margin-bottom: 70px;
+            justify-content: center;
+            transition: 0.2s;
+           align-items: center;
+        }
+        .mbtiimg {
+            display: flex;
+            margin: auto;
+            width: 100%;
         }
 
         .mbtitext {
@@ -165,14 +188,17 @@
             margin: auto;
             margin-top: 100px;
         }
-
-        .hobbyimg {
+        .hobbyarea{
             width: 700px;
             margin: auto;
             margin-left: 70px;
             margin-bottom: 70px;
         }
-
+        .hobbyimg {
+            display: flex;
+            margin: auto;
+            width: 100%;
+        }
         .hobbytext {
             margin: auto;
             margin-top: 20px;
@@ -295,11 +321,62 @@
             width: 700px;
             margin: auto;
         }
-        .contenttitle{
+
+        .contenttitle {
             text-align: center;
             margin-bottom: 100px;
             font-size: 30px;
             margin-top: 30px;
+        }
+
+        .fifthpage {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(223, 221, 221);
+        }
+
+        .healtharea {
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .healthimg {
+            width: 600px;
+        }
+
+        .healthtext {
+            margin: auto;
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+            margin-bottom: 100px;
+        }
+
+        .contactline {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(201, 199, 199);
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .myname {
+            font-size: 30px;
+            margin: auto;
+            margin-right: 10px;
+        }
+
+        .contactnumber {
+            font-size: 20px;
+            margin: auto;
+            margin-left: 10px;
+            line-height: 200%;
         }
     </style>
 </head>
@@ -314,13 +391,13 @@
             </a>
             <div class="empty"></div>
             <div class="headmenu">
-                <a href="#myline">
+                <a href="./introduct.html">
                     <div class="headmenu_text">레넌을 소개합니다</div>
                 </a>
                 <a href="https://charliekim0821.github.io/BLC-Web/index.html">
                     <div class="headmenu_text">BLC</div>
                 </a>
-                <a href="#historyline">
+                <a href="./histoy.html">
                     <div class="headmenu_text">지나온 길</div>
                 </a>
             </div>
@@ -334,102 +411,153 @@
             </a>
         </Div>
         <div>
-            <div class="mainpage">
+            <div class="mainpage panel">
                 <div class="whoisit">레넌이 누구야?</div>
             </div>
-            <div class="secondepage">
-                <div class="mbti">
-                    <div class="mbtiarea">
-                        <img class="mbtiimg" src="./MBTI.png">
-                    </div>
-                    <div class="mbtitext">
-                        <div class="INFP">INFP</div>
-                        <div class="mbtititle">
-                            <div>틀에 갇힌 학습이나 활동을 싫어함</div>
-                            <div>자존심만 건들지 않으면</div>
-                            <div>누구보다 관대함</div>
+            <div class="panel">
+                <div class="secondepage">
+                    <div class="mbti">
+                        <div class="mbtiarea">
+                            <img class="mbtiimg" src="./MBTI.png">
+                        </div>
+                        <div class="mbtitext">
+                            <div class="INFP">INFP</div>
+                            <div class="mbtititle">
+                                <div>틀에 갇힌 학습이나 활동을 싫어함</div>
+                                <div>자존심만 건들지 않으면</div>
+                                <div>누구보다 관대함</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="hobby">
-                    <div class="hobbytext">
-                        <div class="취미">취미</div>
-                        <div class="hobbytitle">
-                            <div>영상편과 맨몸운동을 좋아합니다</div>
-                            <div>영상편집은 혼자 하는 것을 더 선호하고</div>
-                            <div>운동은 다같이 하는 것을 더 좋아합니다</div>
+                    <div class="hobby">
+                        <div class="hobbytext">
+                            <div class="취미">취미</div>
+                            <div class="hobbytitle">
+                                <div>영상편과 맨몸운동을 좋아합니다</div>
+                                <div>영상편집은 혼자 하는 것을 더 선호하고</div>
+                                <div>운동은 다같이 하는 것을 더 좋아합니다</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hobbyarea">
-                        <img class="hobbyimg" src="./카페.png">
-                    </div>
+                        <div class="hobbyarea">
+                            <img class="hobbyimg" src="./카페.png">
+                        </div>
 
-                </div>
-                <div class="Motto">
-                    <div class="mottoarea">
-                        <img class="mottoimg" src="./디엠지.png">
                     </div>
-                    <div class="mottotext">
-                        <div class="좌우명">좌우명</div>
-                        <div class="mottotitle">
-                            <div>과거에 머무르는 것은 엘리베이터를 타는 것 만큼 쉽고</div>
-                            <div>미래를 그리는 것은 계단을 오르는 것처럼 힘들어,</div>
-                            <div>하지만 계단은 끝까지 오르면 옥상에 올라가</div>
-                            <div>넓은 하늘을 볼 수 있어</div>
+                    <div class="Motto">
+                        <div class="mottoarea">
+                            <img class="mottoimg" src="./디엠지.png">
+                        </div>
+                        <div class="mottotext">
+                            <div class="좌우명">좌우명</div>
+                            <div class="mottotitle">
+                                <div>과거에 머무르는 것은 엘리베이터를 타는 것 만큼 쉽고</div>
+                                <div>미래를 그리는 것은 계단을 오르는 것처럼 힘들어,</div>
+                                <div>하지만 계단은 끝까지 오르면 옥상에 올라가</div>
+                                <div>넓은 하늘을 볼 수 있어</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="thirdpage">
-                <div class="lennon">
-                    <Div class="lennonarea">
-                        <img class="lennonimg" src="./Lennon.png">
-                    </Div>
-                    <div class="lennontext">
-                        <div class="레넌">레넌</div>
-                        <div class="lennontitle">
-                            <div>신장: 169cm</div>
-                            <div>몸무게: 59~60kg</div>
-                            <div>혈액형: A형</div>
-                            <div>생년월일: 2004.8.31.</div>
-                            <div>별자리: 처녀자리</div>
+                <div class="thirdpage">
+                    <div class="lennon">
+                        <Div class="lennonarea">
+                            <img class="lennonimg" src="./Lennon.png">
+                        </Div>
+                        <div class="lennontext">
+                            <div class="레넌">레넌</div>
+                            <div class="lennontitle">
+                                <div>신장: 169cm</div>
+                                <div>몸무게: 59~60kg</div>
+                                <div>혈액형: A형</div>
+                                <div>생년월일: 2004.8.31.</div>
+                                <div>별자리: 처녀자리</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="personality">
+                        <div class="personalitytext">
+                            <div class="성격">성격</div>
+                            <div class="personalitytitle">
+                                <div>저는 상대방과</div>
+                                <div>친하고 안친하다의 관계가</div>
+                                <Div>고스란히 드러납니다.</Div>
+                                <div>친한 관계에서는</div>
+                                <div>산만하고 외향적인 성격이지만</div>
+                                <div>잘 모르는 관계에서는</div>
+                                <div>소심하고 내향적으로 변합니다.</div>
+                            </div>
+                        </div>
+                        <div class="personalityarea">
+                            <img class="personalityimg" src="./meee.png">
                         </div>
                     </div>
                 </div>
-                <div class="personality">
-                    <div class="personalitytext">
-                        <div class="성격">성격</div>
-                        <div class="personalitytitle">
-                            <div>저는 상대방과</div>
-                            <div>친하고 안친하다의 관계가</div>
-                            <Div>고스란히 드러납니다.</Div>
-                            <div>친한 관계에서는</div>
-                            <div>산만하고 외향적인 성격이지만</div>
-                            <div>잘 모르는 관계에서는</div>
-                            <div>소심하고 내향적으로 변합니다.</div>
+                <div class="fourthpage">
+                    <div class="content">
+                        <div class="contentarea">
+                            <img class="contentimg" src="./fight.png">
+                        </div>
+                        <div class="contenttitle">
+                            <div>저는 반복적인 활동에 쉽게 질립니다.</div>
+                            <div>오히려 어렵고 복잡하지만 새로운 것을 추구하죠.</div>
+                            <div>세상 만사에 호기심을 갖고,</div>
+                            <div>이해하기 전까지는 절대 그것에 대해 관심을 놓지않습니다.</div>
+                            <div>저의 관심사와 관련이 있다면</div>
+                            <div>꽤 오랫동안 더 자세히 이해하려하죠.</div>
                         </div>
                     </div>
-                    <div class="personalityarea">
-                        <img class="personalityimg" src="./meee.png">
+                </div>
+                <div class="fifthpage">
+                    <div class="healtharea">
+                        <img class="healthimg" src="./health.png">
+                    </div>
+                    <div class="healthtext">
+                        <div>저는 어렸을 때부터 운동을 좋아했고
+                        </div>
+                        <div>그래서 면역력이 크게 떨어져본 적이 잘 없었습니다.
+                        </div>
+                        <div>그리고 맨몸운동을 시작하면서 다이어트를 해보기도 하고
+                        </div>
+                        <div>작지만 약간의 벌크업도 해보았습니다.
+                        </div>
+                        <div>그러면서 비만에 대해서 많은 관심이 생겼고
+                        </div>
+                        <div>비만이라는 것에 대해서 잘 알고
+                        </div>
+                        <div>비만이라는 것에 대해서 잘 이겨낼 수 있는 솔루션을 구축하기 위해
+                        </div>
+                        <div>BLC라는 팀을 꾸렸습니다.</div>
                     </div>
                 </div>
-            </div>
-            <div class="fourthpage">
-                <div class="content">
-                    <div class="contentarea">
-                        <img class="contentimg" src="./fight.png">
-                    </div>
-                    <div class="contenttitle">
-                        <div>저는 반복적인 활동에 쉽게 질립니다.</div>
-                        <div>오히려 어렵고 복잡하지만 새로운 것을 추구하죠.</div>
-                        <div>세상 만사에 호기심을 갖고,</div>
-                        <div>이해하기 전까지는 절대 그것에 대해 관심을 놓지않습니다.</div>
-                        <div>저의 관심사와 관련이 있다면</div>
-                        <div>꽤 오랫동안 더 자세히 이해하려하죠.</div>
+                <div class="contactline">
+                    <div class="contact">
+                        <div class="myname">레넌</div>
+                        <div class="contactnumber">
+                            <div class="email">E-mail: dlrua6314@naver.com</div>
+                            <div class="tel">Tel: 010-6314-9878</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            // 스크롤 자스
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray(".panel").forEach((panel, i) => {
+                ScrollTrigger.create({
+                    trigger: panel,
+                    start: "top top",
+                    pin: true,
+                    pinSpacing: false
+                });
+            });
+
+
+            ScrollTrigger.create({
+                snap: 1 / 4 // snap whole page to the closest section!
+            });
+        </script>
 </body>
 
 </html>

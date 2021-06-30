@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [data-state="Bad"] {
+	 --duration: 1000ms;
+	 --delay: 400ms;
+	 --color: #fae5e5;
+	 --darker-color: #d9a5a3;
+	 --faded-color: rgba(238, 159, 159, .5);
+}
+ [data-state="Good"] {
+	 --duration: 400ms;
+	 --delay: 100ms;
+	 --color: #e7eef8;
+	 --darker-color: #6690d6;
+	 --faded-color: rgba(152, 182, 225, .5);
+}
+ .app {
+	 width: 100%;
+	 height: 100%;
+	 padding: 2rem;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 flex-direction: column;
+	 background: var(--color);
+}
+ .app:before {
+	 font-family: monospace;
+	 content: attr(data-state);
+	 margin-bottom: 0.5em;
+}
+/* ---------------------------------- */
+ .device {
+	 width: 95%;
+	 max-width: 18rem;
+	 display: grid;
+	 border-radius: 1vmin;
+	 background-color: #fff;
+	 box-shadow: 0 2vmin 3vmin var(--faded-color);
+	 padding: 2vw;
+	 overflow: hidden;
+}
+/* ---------------------------------- */
+ .app input[type="checkbox"] {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 opacity: 0;
+}
+ .menu {
+	 visibility: hidden;
+	 opacity: 0;
+	 transform: translateX(-100%);
+	 transition: transform 0.4s linear, opacity 0.2s linear 0.2s, visibility 0s linear 0.4s;
+}
+ input:checked ~ * .menu {
+	 transform: translateX(0%);
+	 transition-delay: 0s;
+	 opacity: 1;
+	 visibility: visible;
+}
+ [data-state="Good"] .menu {
+	 transition-timing-function: cubic-bezier(0.8, 0, 0.6, 1), linear, linear;
+}
+ [data-state="Good"] input:checked ~ * .menu {
+	 transition-timing-function: cubic-bezier(0, 0.2, 0.25, 1), linear, linear;
+}
+/* ---------------------------------- */
+ .menu {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 bottom: 0;
+	 width: 85%;
+	 padding: 2vw;
+	 background: inherit;
+	 z-index: 2;
+	 box-shadow: 0 0 5vw 2vw var(--faded-color);
+}
+ .menu ul, .menu li {
+	 list-style-type: none;
+	 margin: 0;
+	 padding: 0;
+}
+ .menu ul {
+	 padding: 2vw;
+}
+ .menu li {
+	 width: 100%;
+	 height: 1rem;
+	 background: var(--darker-color);
+	 margin-bottom: 2vw;
+	 border-radius: 0.5vw;
+}
+ header {
+	 margin-bottom: 2vw;
+}
+ .menu-close, .menu-toggle {
+	 user-select: none;
+}
+ .toggle-overflow {
+	 position: absolute;
+	 height: 100%;
+	 width: 100%;
+	 left: 100%;
+	 top: 0;
+}
+/* ---------------------------------- */
+ label {
+	 cursor: pointer;
+	 font-size: 2rem;
+	 color: var(--darker-color);
+}
+/* ---------------------------------- */
+ .content :last-child {
+	 margin-bottom: 0rem;
+}
+ .dummy {
+	 width: 100%;
+	 padding-top: 30%;
+	 background: var(--color);
+	 margin-bottom: 2vw;
+	 border-radius: 0.5vw;
+}
+/* ---------------------------------- */
+ *, *:before, *:after {
+	 box-sizing: border-box;
+	 position: relative;
+}
+ body {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ body, html {
+	 height: 100%;
+	 width: 100%;
+	 margin: 0;
+	 padding: 0;
+	 overflow: hidden;
+}
+ body:before {
+	 pointer-events: none;
+	 content: '👍';
+	 height: 100%;
+	 width: 100%;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 opacity: 0.05;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 animation: ghost 10s ease-in-out infinite;
+	 z-index: 100000;
+}
+ @keyframes ghost {
+	 from, to {
+		 transform: translateX(-25%) scale(2) skewX(-30deg);
+	}
+	 50% {
+		 transform: translateX(25%) scale(2.2) skewX(30deg);
+	}
+}
+ 
+ 
+    </style>
+</head>
+<body>
+    <div class="app" data-state="Good">  
+        <input type="checkbox" id="menu-open" />
+        <div class="device">
+          <header>
+            <label class="menu-toggle" for="menu-open">☰</label>
+          </header>
+          
+          <nav class="menu">
+            <label class="menu-close" for="menu-open">✖️</label>
+            
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+            <label class="toggle-overflow" for="menu-open"></label>
+          </nav>
+          
+          <main class="content">
+            <div class="dummy"></div>
+            <div class="dummy"></div>
+            <div class="dummy"></div>
+            <div class="dummy"></div>
+          </main>
+      
+        </div>
+      </div>
+<script>
+    document.body.addEventListener('click', function(){
+  document.querySelectorAll('input').forEach( i => i.checked = !i.checked );
+});
+</script>
+</body>
+</html>

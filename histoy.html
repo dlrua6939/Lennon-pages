@@ -1,12 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>history</title>
+    <link rel="short icon" href="./favicon.ico">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'MapoFlowerIsland';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '116angmuburi';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.0/116angmuburi.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'KOTRA_SONGEULSSI';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_SONGEULSSI.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        html {
+            scroll-behavior: smooth;
+            cursor: url(./cursor2.cur), auto;
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+                overflow-y: scroll;
+            }
+        }
+
+        a,
+        a:link {
+            cursor: url('./cursor.cur'), auto;
+        }
+
+        body {
+            font-family: 'MapoFlowerIsland';
+            margin: 0;
+
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .alldiv {
+            display: flex;
+            flex-direction: column;
+        }
+        .head {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            height: 60px;
+            opacity: 30%;
+            transition: 0.1s;
+        }
+        .head:hover{
+            opacity: 100%;
+        }
+
+        .logo {
+            margin: 15px 15px 15px 30px;
+            font-size: 25px;
+        }
+
+        .headmenu {
+            display: flex;
+            flex-direction: row;
+            margin: 20px 20px 20px 20px;
+            right: 50px;
+            position: absolute;
+        }
+
+        .headmenu_text {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .btn-menu {
+            right: 10px;
+            position: absolute;
+            float: right;
+            width: 60px;
+            height: 45px;
+            background-color: transparent;
+            margin-top: 12px;
+            position: fixed;
+        }
+
+        .btn-menu-line {
+            background: black;
+            margin: auto;
+            margin-top: 5px;
+            margin-bottom: 4px;
+            width: 30px;
+            height: 4px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .mainpage {
+            display: flex;
+            flex-direction: column;
+            height: 1080px;
+        }
+
+        .whoisit {
+            margin: auto;
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="alldiv">
+        <Div class="head">
+            <a href="./index.html">
+                <div class="logo">
+                    <div class="logotext">레넌</div>
+                </div>
+            </a>
+            <div class="empty"></div>
+            <div class="headmenu">
+                <a href="./introduct.html">
+                    <div class="headmenu_text">레넌을 소개합니다</div>
+                </a>
+                <a href="https://charliekim0821.github.io/BLC-Web/index.html">
+                    <div class="headmenu_text">BLC</div>
+                </a>
+                <a href="./histoy.html">
+                    <div class="headmenu_text">지나온 길</div>
+                </a>
+            </div>
+
+            <a href="javascript:;" class="btn-menu">
+                <div class="line-wrapper">
+                    <div class="btn-menu-line"></div>
+                    <div class="btn-menu-line"></div>
+                    <div class="btn-menu-line"></div>
+                </div>
+            </a>
+        </Div>
+        <div class="mainpage panel">
+            <div class="whoisit">지나온 길</div>
+        </div>
+    </div>
 </body>
+
 </html>

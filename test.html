@@ -7,44 +7,726 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #slider {
-            width: 100%;
-            background-color: red;
-            height: 100%;
-            position: fixed;
+        * {
+            box-sizing: border-box;
         }
 
-        #overflow {
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+        nav {
+            overflow: hidden;
+            position: fixed;
+            right:0;
+            transform: translateX(-30px);
+            height: 100%;
+            width: 500px;
+            transition: all 800ms;
+            border-radius: 0% 0% 0% 0%;
+            z-index: 1000;
+        }
+
+        nav.nav-open {
+            position: fixed;
+            transform: translateX(-30px);
+            border-radius: 0% 0% 0% 0%;
+            background: white;
+        }
+
+        nav .menu-btn {
+            position: absolute;
+            top: 5%;
+            right: 0.1%;
+            padding: 0;
+            width: 30px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        nav .menu-btn .line {
+            padding: 0;
+            width: 30px;
+            background: black;
+            height: 2px;
+            margin: 5px 0;
+            transition: all 700ms;
+        }
+
+        nav .menu-btn .line.line--1 {
+            width: 28px;
+            transform: rotate(0) translateY(0);
+        }
+
+        nav .menu-btn .line.line--1.line-cross {
+            width: 28px;
+            transform: rotate(45deg) translateY(10px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        nav .menu-btn .line.line--2 {
+            width: 28px;
+            transform: translateX(0);
+        }
+
+        nav .menu-btn .line.line--2.line-fade-out {
+            width: 28px;
+            transform: translate(30px);
+            opacity: 0;
+        }
+
+        nav .menu-btn .line.line--3 {
+            width: 28px;
+            transform: rotate(0) translateY(0);
+        }
+
+        nav .menu-btn .line.line--3.line-cross {
+            width: 30px;
+            transform: rotate(-45deg) translateY(-10px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        nav .nav-links {
+            position: absolute;
+            right: 0;
+            top: 0;
             width: 100%;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(300px);
+            opacity: 0;
+            transition: all 900ms;
+        }
+
+        nav .nav-links.fade-in {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+
+        nav .nav-links .link {
+            margin: 20px 0;
+            text-decoration: none;
+            font-family: sans-serif;
+            color: rgba(0, 0, 0, 0.9);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            transition: all 300ms;
+        }
+
+        nav .nav-links .link:hover {
+            color: rgba(0, 0, 0, .5);
+        }
+        a {
+            margin: 0 20px;
+            color: #fff;
+            font-size: 2rem;
+            transition: all 400ms ease;
+        }
+
+        a:hover {
+            color: #222;
+        }
+        @font-face {
+            font-family: 'MapoFlowerIsland';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: '116angmuburi';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.0/116angmuburi.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'KOTRA_SONGEULSSI';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/KOTRA_SONGEULSSI.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        html {
+            scroll-behavior: smooth;
+            cursor: url(./cursor2.cur), auto;
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+                overflow-y: scroll;
+            }
+        }
+
+        a,
+        a:link {
+            cursor: url('./cursor.cur'), auto;
+        }
+
+        body {
+            font-family: 'MapoFlowerIsland';
+            margin: 0;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .alldiv {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0;
+        }
+
+        .head {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            width: 100%;
+            height: 60px;
+            z-index: 1000;
+            transition: 0.1s;
+        }
+
+        .logo {
+            margin: 15px 15px 15px 30px;
+            font-size: 25px;
+        }
+
+        .headmenu {
+            display: flex;
+            flex-direction: row;
+            margin: 20px 20px 20px 20px;
+            right: 50px;
             position: absolute;
-            background-color: blue;
+        }
+
+        .headmenu_text {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        
+
+        header {
+            margin-bottom: 2vw;
+        }
+        .mainpage {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .firstline {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .title {
+            font-family: 'KOTRA_SONGEULSSI';
+            margin: auto;
+            font-size: 80px;
+            margin-top: 100px;
+        }
+
+        .leftpicture {
+            width: 400px;
+            position: absolute;
+            left: 220px;
+            top: 20px;
+        }
+
+        .leftbigbox {
+            margin-top: 100px;
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .yellobox {
+            width: 400px;
+            height: 400px;
+            border: solid yellow 4px;
+            position: absolute;
             top: 0;
+            left: 200px;
+        }
+
+        .rightbigbox {
+            margin-top: 400px;
+            margin-right: 20px;
+            position: relative;
+        }
+
+
+
+        .rightpicture {
+            width: 350px;
+            position: absolute;
+            top: 20px;
+            right: 200px;
+
+        }
+
+        .redbox {
+            width: 350px;
+            height: 350px;
+            border: solid red 4px;
+            position: absolute;
+            top: 0;
+            right: 215px;
+        }
+
+        .mainimg {
+            width: 100%;
+            box-shadow: 5px 5px 5px 5px #d7d7d7;
+        }
+
+        .textline {
+            background-color: rgb(250, 250, 250);
+            display: flex;
+            flex-direction: row;
+            margin-top: 400px;
+        }
+
+        .textlinecontent {
+            margin: auto;
+            margin-top: 100px;
+            font-size: 50px;
+            text-align: end;
+            margin-bottom: 150px;
+
+        }
+
+        .크리에이터 {
+            color: rgb(155, 0, 0);
+        }
+
+        .myline {
+            display: flex;
+            margin-top: 0;
+            flex-direction: column;
+            background-color: rgb(247, 247, 247);
+        }
+
+        .profiles {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-bottom: 250px;
+            margin-top: 100px;
+        }
+
+        .profilesimg {
+            width: 100%;
+            border-radius: 50%;
+            margin: auto;
+            transition: 0.2s;
+        }
+
+        .profilepages {
+            display: flex;
+            margin: auto;
+            justify-self: center;
+            margin-right: 60px;
+            width: 350px;
+            height: 350px;
+            transition: 0.2s;
+            border-radius: 50%;
+            border: solid;
+        }
+
+        .profilepages:hover>.profilesimg {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .introduct {
+            font-size: 30px;
+            margin: auto;
+            margin-left: 60px;
+        }
+
+        .영상편집 {
+            color: rgb(23, 0, 228)
+        }
+
+        .운동 {
+            color: rgb(207, 3, 180);
+        }
+
+        .열정 {
+            color: crimson;
+        }
+
+        .skill {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+
+        .skilltext {
+            display: flex;
+            font-size: 40px;
+            margin: auto;
+            margin-bottom: 50px;
+        }
+
+        .skillimg {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-bottom: 150px;
+            width: 100%;
+        }
+
+        .iconimgs {
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+            height: 150px;
+            margin: auto;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .iconimg {
+            width: 100%;
+            margin: auto;
+            margin-bottom: 30px;
+        }
+
+        .iocnname {
+            display: flex;
+            text-align: center;
+            width: 100%;
+            margin-right: 50px;
+        }
+
+        .BLCline {
+            display: flex;
+            background-color: rgb(236, 235, 235);
+            flex-direction: column;
+        }
+
+        .blcproject {
+            display: flex;
+            text-align: center;
+            font-size: 40px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .blccontent {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .blclogo {
+            display: flex;
+            width: 300px;
+            height: 300px;
+            border: solid;
+            border-radius: 50%;
+            transition: 0.2s;
+        }
+
+        .blclink {
+            display: none;
+        }
+
+        .logoimg {
+            margin: auto;
+            width: 90%;
+            transition: 0.2s;
+        }
+
+        .blclogo:hover {
+            background-color: black;
+            opacity: 90%;
+        }
+
+        .blclogo:hover>.logoimg {
+            width: 70%;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            font-size: 30px;
+            margin: auto;
+            margin-left: 100px;
+            line-height: 200%;
+
+        }
+
+        .historyline {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(223, 221, 221);
+        }
+
+        .historytitle {
+            display: flex;
+            text-align: center;
+            font-size: 40px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .historycontent {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .firsthistory {
+            display: flex;
+            margin-top: 100px;
+            flex-direction: column;
+            font-size: 28px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .historybutton {
+            margin: auto;
+            margin-bottom: 30px;
+            font-size: 20px;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .historybutton:hover {
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .contactline {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(201, 199, 199);
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .myname {
+            font-size: 30px;
+            margin: auto;
+            margin-right: 10px;
+        }
+
+        .contactnumber {
+            font-size: 20px;
+            margin: auto;
+            margin-left: 10px;
+            line-height: 200%;
         }
     </style>
 </head>
 
 <body>
-    <div id="slider"></div>
-    <div id="overflow"></div>
+    
+    <div class="alldiv">
+        <Div class="head">
+            <a href="./index.html">
+                <div class="logo">
+                    <div class="logotext">레넌</div>
+                </div>
+            </a>
+            <div class="empty"></div>
+            <div class="headmenu">
+                <a href="./introduct.html">
+                    <div class="headmenu_text">레넌을 소개합니다</div>
+                </a>
+                <a href="https://charliekim0821.github.io/BLC-Web/index.html">
+                    <div class="headmenu_text">BLC</div>
+                </a>
+                <a href="./histoy.html">
+                    <div class="headmenu_text">지나온 길</div>
+                </a>
+            </div>
+            <nav>
+                <div class="menu-btn">
+                    <div class="line line--1"></div>
+                    <div class="line line--2"></div>
+                    <div class="line line--3"></div>
+                </div>
+        
+                <div class="nav-links">
+                    <a href="" class="link">Home</a>
+                    <a href="" class="link">Contact</a>
+                    <a href="" class="link">Profile</a>
+                    <a href="" class="link">About</a>
+                </div>
+            </nav>
+        </Div>
+
+
+        <div class="mainpage">
+            <div class="firstline panel" id="firstline">
+                <div class="leftbigbox">
+                    <div class="leftpicture">
+                        <img class="mainimg" src="./leftpicture.png">
+                    </div>
+                    <div class="yellobox"></div>
+
+                </div>
+                <div class="title">
+                    <div>ㄹ</div>
+                    <div>ㅔ</div>
+                    <div>ㄴ</div>
+                    <div>ㅓ</div>
+                    <div>ㄴ</div>
+                </div>
+                <div class="rightbigbox">
+                    <div class="rightpicture">
+                        <img class="mainimg" src="./rightpicture.png">
+                    </div>
+                    <div class="redbox"></div>
+
+                </div>
+            </div>
+            <div class="panel">
+                <div class="textline">
+                    <div class="textlinecontent">
+                        <div>배부른 공무원?</div>
+                        <div>난 배고픈 <strong class="크리에이터">크리에이터</strong>가 될래!</div>
+                        <div>안녕하세요! 레넌입니다!</div>
+                    </div>
+                </div>
+
+                <div class="myline" id="myline">
+                    <div class="profiles">
+                        <a class="profilepages" href=./introduct.html>
+                            <img class="profilesimg" src="./me.jpg">
+                        </a>
+                        <div class="introduct">
+                            <div>저는 2004년 안양에서 태어난 레넌입니다.</div>
+                            <div><strong class="영상편집">영상편집</strong>과 <strong class="운동">운동</strong>을 좋아합니다.</div>
+                            <div>제가 좋아하는 일에 대해서는</div>
+                            <div>그 누구보다 <strong class="열정">열정</strong>을 가지고 임합니다.</div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skilltext">
+                            <div>이런 것들을 사용할 줄 알아요!</div>
+                        </div>
+                        <div class="skillimg">
+                            <div class="iconimgs">
+                                <img class="iconimg" src="./premiere icon.png">
+                                <div class="iocnname">Premiere pro</div>
+                            </div>
+                            <div class="iconimgs">
+                                <img class="iconimg" src="./photoshop.png">
+                                <div class="iocnname">Photoshop</div>
+                            </div>
+                            <div class="iconimgs">
+                                <img class="iconimg" src="./after effect.png">
+                                <div class="iocnname">After effect</div>
+                            </div>
+                            <div class="iconimgs">
+                                <img class="iconimg" src="./visul studio code.png">
+                                <div class="iocnname">Visul studio code</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="BLCline">
+                    <div class="blcproject">BLC-프로젝트</div>
+                    <div class="blccontent">
+                        <a class="blcweb" href="https://charliekim0821.github.io/BLC-Web/index.html">
+                            <div class="blclogodiv">
+                                <div class="blclink">보러가기</div>
+                                <div class="blclogo">
+                                    <img class="logoimg" src="./BLC_Logow.png">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="content" id="content">
+                            <div>제가 속한 BLC팀은</div>
+                            <div>비만과 건강의 관계를 학습하고</div>
+                            <div>다이어트와 '건강'을 위한</div>
+                            <div>솔루션을 연구중입니다</div>
+                        </div>
+                    </div>
+                    <div class="historyline" id="historyline">
+                        <div class="historytitle">지나온 길</div>
+                        <div class="historycontent">
+                            <div class="firsthistory">
+                                <div>저는 학교에서 개인 또는 팀을 꾸려서</div>
+                                <div>개인, 혹은 사회의 문제를 해결하는</div>
+                                <div>프로젝트를 진행합니다</div>
+                            </div>
+                        </div>
+                        <a class="historybutton" href="./histoy.html">
+                            <div>
+                                -> 보러가기
+                            </div>
+                        </a>
+                    </div>
+                    <div class="contactline">
+                        <div class="contact">
+                            <div class="myname">레넌</div>
+                            <div class="contactnumber">
+                                <div class="email">E-mail: dlrua6314@naver.com</div>
+                                <div class="tel">Tel: 010-6314-9878</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="cursor">
+                <div class="blob"></div>
+                <div class="blob"></div>
+                <div class="blob"></div>
+                <div class="blob"></div>
+            </div>
+
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="my-blur" />
+                    <feColorMatrix in="my-blur" mode="matrix" values="
+                          1 0 0 0 0
+                          0 1 0 0 0
+                          0 0 1 0 0
+                          0 0 0 20 -8" result="my-gooey" />
+                </filter>
+            </defs>
+        </svg>
 
     <script>
-        var ovf, slider;
-        $(function () {
-            ovf = this.getElementById("overflow");
-            slider = this.getElementById("slider");
-            winResize();
-            $(window).bind({ resize: winResize, scroll: winScroll });
-        });
-        function winResize() {
-            ovf.style.top = slider.offsetHeight + "px";
-        }
-
-        function winScroll() {
-            var op = 1 - (window.pageYOffset / slider.offsetHeight);
-            slider.style.opacity = op;
-        }
-
+        var menuBtn = document.querySelector('.menu-btn');
+        var nav = document.querySelector('nav');
+        var lineOne = document.querySelector('nav .menu-btn .line--1');
+        var lineTwo = document.querySelector('nav .menu-btn .line--2');
+        var lineThree = document.querySelector('nav .menu-btn .line--3');
+        var link = document.querySelector('nav .nav-links');
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+            lineOne.classList.toggle('line-cross');
+            lineTwo.classList.toggle('line-fade-out');
+            lineThree.classList.toggle('line-cross');
+            link.classList.toggle('fade-in');
+        })
     </script>
 </body>
 
