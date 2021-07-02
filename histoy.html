@@ -9,6 +9,10 @@
     <link rel="short icon" href="./favicon.ico">
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         @font-face {
             font-family: 'MapoFlowerIsland';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
@@ -29,6 +33,147 @@
             font-weight: normal;
             font-style: normal;
         }
+
+        .panel {
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            overflow: hidden;
+            position: fixed;
+            right: 0;
+            transform: translateX(0px);
+            height: 100%;
+            width: 500px;
+            transition: all 800ms;
+            border-radius: 0% 0% 0% 0%;
+            z-index: 1000;
+            opacity: 1;
+        }
+
+        nav.nav-open {
+            position: fixed;
+            transform: translateX(0px);
+            border-radius: 0% 0% 0% 0%;
+            background: white;
+        }
+
+        nav .menu-btn {
+            position: absolute;
+            top: 2%;
+            right: 8%;
+            padding: 0;
+            width: 30px;
+            cursor: pointer;
+            z-index: 1000;
+            cursor: url('./cursor.cur'), auto;
+        }
+
+        nav .menu-btn .line {
+            padding: 0;
+            width: 28px;
+            background: black;
+            height: 2.5px;
+            margin: 3px;
+            transition: all 700ms;
+        }
+
+        nav .menu-btn .line.line--1 {
+            width: 28px;
+            transform: rotate(0) translateY(0);
+        }
+
+        nav .menu-btn .line.line--1.line-cross {
+            width: 28px;
+            transform: rotate(45deg) translateY(10px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        nav .menu-btn .line.line--2 {
+            width: 28px;
+            transform: translateX(0);
+        }
+
+        nav .menu-btn .line.line--2.line-fade-out {
+            width: 28px;
+            transform: translate(30px);
+            opacity: 0;
+        }
+
+        nav .menu-btn .line.line--3 {
+            width: 28px;
+            transform: rotate(0) translateY(10);
+        }
+
+        nav .menu-btn .line.line--3.line-cross {
+            width: 28px;
+            transform: rotate(-45deg) translateY(-10px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        nav .nav-links {
+            
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(300px);
+            opacity: 0;
+            transition: all 900ms;
+        }
+
+        nav .nav-links.fade-in {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+
+        nav .nav-links .link {
+            margin: 20px 0;
+            text-decoration: none;
+            font-family: sans-serif;
+            color: rgba(0, 0, 0, 0.9);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            transition: all 300ms;
+        }
+
+        nav .nav-links .link:hover {
+            color: rgba(0, 0, 0, .5);
+        }
+
+        
+        a {
+            margin: 0 20px;
+            color: #fff;
+            font-size: 20px;
+            transition: all 400ms ease;
+        }
+
+        a:hover {
+            color: #222;
+        }
+
+        html,
+        body {
+            height: auto;
+        }
+
+
         html {
             scroll-behavior: smooth;
             cursor: url(./cursor2.cur), auto;
@@ -52,38 +197,37 @@
             margin: 0;
 
         }
+
         a {
             text-decoration: none;
             color: black;
         }
+
         .alldiv {
             display: flex;
             flex-direction: column;
         }
+
         .head {
             display: flex;
             flex-direction: row;
-            position: fixed;
-            z-index: 1000;
-            width: 100%;
+            width: 70%;
             height: 60px;
-            opacity: 30%;
             transition: 0.1s;
-        }
-        .head:hover{
-            opacity: 100%;
         }
 
         .logo {
-            margin: 15px 15px 15px 30px;
-            font-size: 25px;
+            position: fixed;
+            z-index: 1000;
+            margin: 20px 15px 15px 30px;
+            font-size: 30px;
         }
 
         .headmenu {
             display: flex;
             flex-direction: row;
-            margin: 20px 20px 20px 20px;
-            right: 50px;
+            margin: 25px 20px 20px 20px;
+            left: 100px;
             position: absolute;
         }
 
@@ -92,37 +236,174 @@
             margin-right: 15px;
         }
 
-        .btn-menu {
-            right: 10px;
-            position: absolute;
-            float: right;
-            width: 60px;
-            height: 45px;
-            background-color: transparent;
-            margin-top: 12px;
-            position: fixed;
+        header {
+            margin-bottom: 2vw;
         }
 
-        .btn-menu-line {
-            background: black;
-            margin: auto;
-            margin-top: 5px;
-            margin-bottom: 4px;
-            width: 30px;
-            height: 4px;
-            border-radius: 5px;
-            position: relative;
-        }
         .mainpage {
             display: flex;
             flex-direction: column;
-            height: 1080px;
         }
 
         .whoisit {
             margin: auto;
             text-align: center;
             font-size: 50px;
+            z-index: 0;
+        }
+
+        .textline {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background-color: rgb(250, 250, 250);
+        }
+
+        .title {
+            font-size: 30px;
+            margin: auto;
+            margin-bottom: 100px;
+            margin-top: 200px;
+        }
+
+        .팀프로젝트 {
+            color: brown
+        }
+
+        .y20_3M {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(247, 247, 247);
+
+        }
+
+        .y20_4M {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(236, 235, 235)
+        }
+
+        .y21_1M {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(226, 223, 223)
+        }
+
+        .주제중심 {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        img {
+            width: 600px;
+        }
+
+        .onetext {
+            margin-top: 30px;
+            margin-left: 50px;
+        }
+
+        .onetitle {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .onecontent {
+            font-size: 30px;
+            line-height: 160%;
+        }
+
+        .문제정의 {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 200px;
+        }
+
+        .twotext {
+            margin-top: 30px;
+            margin-right: 50px;
+            text-align: end;
+        }
+
+        .twotitle {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .twocontent {
+            font-size: 30px;
+            line-height: 200%;
+        }
+
+        .nm {
+            display: flex;
+            margin: auto;
+            margin-top: 60px;
+            font-size: 50px;
+        }
+
+        .개주프 {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 200px;
+            margin-bottom: 100px;
+        }
+
+        .threetext {
+            margin-top: 30px;
+            margin-left: 50px;
+        }
+
+        .threetitle {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .threecontent {
+            font-size: 30px;
+            line-height: 160%;
+        }
+        .contactline {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(201, 199, 199);
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .myname {
+            font-size: 30px;
+            margin: auto;
+            margin-right: 10px;
+        }
+
+        .contactnumber {
+            font-size: 20px;
+            margin: auto;
+            margin-left: 10px;
+            line-height: 200%;
+        }
+        .sns{
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+        .snsimg{
+            width: 30px;
+            color: white;
+            margin-left: 1px;
+            margin-right: 1px;
         }
     </style>
 </head>
@@ -148,18 +429,227 @@
                 </a>
             </div>
 
-            <a href="javascript:;" class="btn-menu">
-                <div class="line-wrapper">
-                    <div class="btn-menu-line"></div>
-                    <div class="btn-menu-line"></div>
-                    <div class="btn-menu-line"></div>
-                </div>
-            </a>
+            <div class="box-header">
+                <nav>
+                    <div class="menu-btn">
+                        <div class="line line--1"></div>
+                        <div class="line line--2"></div>
+                        <div class="line line--3"></div>
+                    </div>
+
+                    <div class="nav-links">
+                        <a href="./introduct.html" class="link">레넌을 소개합니다</a>
+                        <a href="https://charliekim0821.github.io/BLC-Web/index.html" class="link">BLC</a>
+                        <a href="./histoy.html" class="link">지나온 길</a>
+                    </div>
+                </nav>
+            </div>
         </Div>
         <div class="mainpage panel">
             <div class="whoisit">지나온 길</div>
         </div>
+        <div class="historypage panel">
+            <div class="textline">
+                <div class="title">
+                    <div>제가 지금까지 학교에서 진행한</div>
+                    <div><strong class="팀프로젝트">팀프로젝트</strong>를 정리한 곳 입니다. </div>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="y20_3M">
+                    <div class="nm">2020년 3모듈</div>
+                    <div class="주제중심">
+
+                        <div class="oneimg">
+                            <a href="ebook/M3 외유내강 주제중심.pdf" target="_blank">
+                                <img src="./ebook/3M_vegan.png">
+                            </a>
+                        </div>
+                        <div class="onetext">
+                            <div class="onetitle">주제중심프로젝트-비건으로 기후변화 줄이기</div>
+                            <div class="onecontent">
+                                <div>가축 을 생산하고 가공하는 과정에서 </div>
+                                <div>배출되는 온실가스는 18%로 </div>
+                                <div>전세계 모든 이동수단이 </div>
+                                <div>배출하는 양인 13%보다 더 높았다.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="문제정의">
+                        <div class="twotext">
+                            <div class="twotitle">문제정의 프로젝트-비정규직 노동자들의 부당한 대우</div>
+                            <div class="twocontent">
+                                <div>고령 비정규직 노동자들 중 대표적으로 청소부가 있다.</div>
+                                <div>이 들은 비정규직으로 고용주에게서 고용되지만</div>
+                                <div>과한 일의 양에 비해 휴식시간/공간이 부족하다.</div>
+                            </div>
+                        </div>
+                        <div class="twoimg">
+                            <a href="ebook/M3 외유내강 문제정의 발표자료.pdf" target="_blank">
+                                <img src="./ebook/3M_worker.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="개주프">
+                        <div class="threeimg">
+                            <a href="ebook/레넌 개주프 e북 2020년 3모듈.pdf" target="_blank">
+                                <img src="ebook/3M_motion.png">
+                            </a>
+                        </div>
+                        <div class="threetext">
+                            <div class="threetitle">개인프로젝트-모션그래픽</div>
+                            <div class="threecontent">
+                                <div>디자인 분야에서 움직이는 디자인으로 분류되며</div>
+                                <div>인터넷 세상에 정보를 영상으로 </div>
+                                <div>정보를 얻는 사람들이 많아졌다.</div>
+                                <div>모션그래픽은 영상의 가시성을 높여준다.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="y20_4M">
+                    <div class="nm">2020년 4모듈</div>
+                    <div class="주제중심">
+                        <div class="oneimg">
+                            <a href="ebook/2020 4M 주제공감 이북.pdf" target="_blank">
+                                <img src="ebook/4M_school.png">
+                            </a>
+                        </div>
+                        <div class="onetext">
+                            <div class="onetitle">주제중심프로젝트-비건으로 기후변화 줄이기</div>
+                            <div class="onecontent">
+                                <div>미래의 지속가능성을 위해선 </div>
+                                <div>미래를 살아 갈 아이들이 지속가능함에 대해 </div>
+                                <div>미리 접해보고 학습해야 한다고 생각했다.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="개주프">
+                        <div class="twotext">
+                            <div class="twotitle">개인주제프로젝트-모션그래픽을 만들어보자</div>
+                            <div class="twocontent">
+                                <div>저번 모듈에 모션그래픽에 대해</div>
+                                <div>이론적인 학습을 했다면 이번에는 직접 만들어보았다.</div>
+                            </div>
+                        </div>
+                        <div class="threeimg">
+                            <img src="ebook/gyeom.jpeg">
+                        </div>
+                    </div>
+                </div>
+                <div class="y21_1M">
+                    <div class="nm">2021년 1모듈</div>
+                    <div class="주제중심">
+                        <div class="oneimg">
+                            <a href="./ebook/2021.1모듈 주제중심.pdf" target="_blank">
+                                <img src="ebook/2M_culture.png">
+                            </a>
+                        </div>
+                        <div class="onetext">
+                            <div class="onetitle">주제중심프로젝트-문화, 최고의 패션디자이너</div>
+                            <div class="onecontent">
+                                <div>후드,청바지,트렌치 코트,배기 팬츠 등 소수의 문화에서 </div>
+                                <div>사람들에게 존중 받고 사랑 받으며 </div>
+                                <div>대중 문화로 이어온 패션 문화 다양성이 있었다.</div>
+                                <div>하지만, 히잡 같은 소수의 문화라고 </div>
+                                <div>배척당하거나 훼손 당하고 있는 문화들 또한 많다.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="문제정의">
+
+                        <div class="twotext">
+                            <div class="twotitle">문제정의프로젝트-헌 옷! 의류수거함에 버리면 안되나요?</div>
+                            <div class="twocontent">
+                                <div>헌 옷 수거함은 집에 있는 헌 옷을 재활용하기 위해 수거한다.</div>
+                                <Div>헌 옷 중에서도 수거함에 넣으면 안되는 옷들이 존재한다.</div>
+                                <div>금지품목에 대해 사람들이 잘 모르는 것이 문제라고 정의했다.</div>
+                            </div>
+                        </div>
+                        <div class="twoimg">
+                            <a href="ebook/100up-헌옷! 의류수거함에 버리면 되나요.pdf">
+                                <img src="ebook/2M_cloth.png" target="_blank">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="개주프">
+                        <div class="threeimg">
+                            <a href="ebook/기린_레넌_나를 표현하는 로고디자인.pdf" target="_blank">
+                            <img src="ebook/1M_logo.png">
+                            </a>
+                        </div>
+                        <div class="threetext">
+                            <div class="threetitle">개인주제프로젝트-나를 표현하는 로고디자인</div>
+                            <div class="threecontent">
+                                <div>디자인에 대한 지식을 얻기 위해 로고디자인을 </div>
+                                    <div>개인주제프로젝트로 선정했다.</div>
+                                    <div>제작이 굉장히 힘들다. 나를 어떤 식으로 표현할지를 </div>
+                                    <Div>생각해내는 과정이 생각보다 오래걸리고 힘들다</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contactline">
+                <div class="contact">
+                    <div class="myname">레넌</div>
+                    <div class="contactnumber">
+                        <div class="email">E-mail: dlrua6314@naver.com</div>
+                        <div class="tel">Tel: 010-6314-9878</div>
+                    </div>
+                </div>
+                <div class="sns">
+                    <div class="instagram">
+                        <a href="https://www.instagram.com/gyeom1941/" target="_blank">
+                            <img class="snsimg" src="instagram.png">
+                        </a>
+                    </div>
+                    <div class="faceboot">
+                        <a href="https://www.facebook.com/L.gyeom/" target="_blank">
+                            <img class="snsimg" src="facebook.png">
+                        </a>
+                    </div>
+                    <div class="instagram">
+                        <a href="https://www.youtube.com/channel/UCUyh-WV9GpRSCj2oAoqo5NA" target="_blank">
+                            <img class="snsimg" src="youtubeicon.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
+    <script>
+        var menuBtn = document.querySelector('.menu-btn');
+        var nav = document.querySelector('nav');
+        var lineOne = document.querySelector('nav .menu-btn .line--1');
+        var lineTwo = document.querySelector('nav .menu-btn .line--2');
+        var lineThree = document.querySelector('nav .menu-btn .line--3');
+        var link = document.querySelector('nav .nav-links');
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+            lineOne.classList.toggle('line-cross');
+            lineTwo.classList.toggle('line-fade-out');
+            lineThree.classList.toggle('line-cross');
+            link.classList.toggle('fade-in');
+        })
+        // 스크롤 자스
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".panel").forEach((panel, i) => {
+            ScrollTrigger.create({
+                trigger: panel,
+                start: "top top",
+                pin: true,
+                pinSpacing: false
+            });
+        });
+
+
+        ScrollTrigger.create({
+            snap: 1 / 4 // snap whole page to the closest section!
+        });
+    </script>
 </body>
 
 </html>

@@ -9,6 +9,10 @@
     <link rel="short icon" href="./favicon.ico">
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         @font-face {
             font-family: 'MapoFlowerIsland';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff');
@@ -29,16 +33,145 @@
             font-weight: normal;
             font-style: normal;
         }
-        html,
-        body {
-            height: auto;
-        }
 
         .panel {
             height: 100vh;
             position: sticky;
             top: 0;
         }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            overflow: hidden;
+            position: fixed;
+            right: 0;
+            transform: translateX(0px);
+            height: 100%;
+            width: 500px;
+            transition: all 800ms;
+            border-radius: 0% 0% 0% 0%;
+            z-index: 1000;
+            opacity: 1;
+        }
+
+        nav.nav-open {
+            position: fixed;
+            transform: translateX(0px);
+            border-radius: 0% 0% 0% 0%;
+            background: white;
+        }
+
+        nav .menu-btn {
+            position: absolute;
+            top: 2%;
+            right: 8%;
+            padding: 0;
+            width: 30px;
+            cursor: pointer;
+            z-index: 1000;
+            cursor: url('./cursor.cur'), auto;
+        }
+
+        nav .menu-btn .line {
+            padding: 0;
+            width: 28px;
+            background: black;
+            height: 2.5px;
+            margin: 3px;
+            transition: all 700ms;
+        }
+
+        nav .menu-btn .line.line--1 {
+            width: 28px;
+            transform: rotate(0) translateY(0);
+        }
+
+        nav .menu-btn .line.line--1.line-cross {
+            width: 28px;
+            transform: rotate(45deg) translateY(10px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        nav .menu-btn .line.line--2 {
+            width: 28px;
+            transform: translateX(0);
+        }
+
+        nav .menu-btn .line.line--2.line-fade-out {
+            width: 28px;
+            transform: translate(30px);
+            opacity: 0;
+        }
+
+        nav .menu-btn .line.line--3 {
+            width: 28px;
+            transform: rotate(0) translateY(10);
+        }
+
+        nav .menu-btn .line.line--3.line-cross {
+            width: 28px;
+            transform: rotate(-45deg) translateY(-10px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        nav .nav-links {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(300px);
+            opacity: 0;
+            transition: all 900ms;
+        }
+
+        nav .nav-links.fade-in {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+
+        nav .nav-links .link {
+            margin: 20px 0;
+            text-decoration: none;
+            font-family: sans-serif;
+            color: rgba(0, 0, 0, 0.9);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            transition: all 300ms;
+        }
+
+        nav .nav-links .link:hover {
+            color: rgba(0, 0, 0, .5);
+        }
+
+        a {
+            margin: 0 20px;
+            color: #fff;
+            font-size: 20px;
+            transition: all 400ms ease;
+        }
+
+        a:hover {
+            color: #222;
+        }
+
+        html,
+        body {
+            height: auto;
+        }
+
+
         html {
             scroll-behavior: smooth;
             cursor: url(./cursor2.cur), auto;
@@ -76,27 +209,23 @@
         .head {
             display: flex;
             flex-direction: row;
-            position: fixed;
-            z-index: 1000;
-            width: 100%;
+            width: 70%;
             height: 60px;
-            opacity: 30%;
             transition: 0.1s;
-        }
-        .head:hover{
-            opacity: 100%;
         }
 
         .logo {
-            margin: 15px 15px 15px 30px;
-            font-size: 25px;
+            position: fixed;
+            z-index: 1000;
+            margin: 20px 15px 15px 30px;
+            font-size: 30px;
         }
 
         .headmenu {
             display: flex;
             flex-direction: row;
-            margin: 20px 20px 20px 20px;
-            right: 50px;
+            margin: 25px 20px 20px 20px;
+            left: 100px;
             position: absolute;
         }
 
@@ -105,32 +234,13 @@
             margin-right: 15px;
         }
 
-        .btn-menu {
-            right: 10px;
-            position: absolute;
-            float: right;
-            width: 60px;
-            height: 45px;
-            background-color: transparent;
-            margin-top: 12px;
-            position: fixed;
-        }
-
-        .btn-menu-line {
-            background: black;
-            margin: auto;
-            margin-top: 5px;
-            margin-bottom: 4px;
-            width: 30px;
-            height: 4px;
-            border-radius: 5px;
-            position: relative;
+        header {
+            margin-bottom: 2vw;
         }
 
         .mainpage {
             display: flex;
             flex-direction: column;
-            height: 1080px;
         }
 
         .whoisit {
@@ -151,15 +261,17 @@
             margin: auto;
             margin-top: 200px;
         }
-        .mbtiarea{
+
+        .mbtiarea {
             width: 700px;
             margin: auto;
             margin-right: 70px;
             margin-bottom: 70px;
             justify-content: center;
             transition: 0.2s;
-           align-items: center;
+            align-items: center;
         }
+
         .mbtiimg {
             display: flex;
             margin: auto;
@@ -188,17 +300,20 @@
             margin: auto;
             margin-top: 100px;
         }
-        .hobbyarea{
+
+        .hobbyarea {
             width: 700px;
             margin: auto;
             margin-left: 70px;
             margin-bottom: 70px;
         }
+
         .hobbyimg {
             display: flex;
             margin: auto;
             width: 100%;
         }
+
         .hobbytext {
             margin: auto;
             margin-top: 20px;
@@ -378,6 +493,18 @@
             margin-left: 10px;
             line-height: 200%;
         }
+        .sns{
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+        .snsimg{
+            width: 30px;
+            color: white;
+            margin-left: 1px;
+            margin-right: 1px;
+        }
     </style>
 </head>
 
@@ -401,15 +528,25 @@
                     <div class="headmenu_text">지나온 길</div>
                 </a>
             </div>
+            <div class="box-header">
+                <nav>
+                    <div class="menu-btn">
+                        <div class="line line--1"></div>
+                        <div class="line line--2"></div>
+                        <div class="line line--3"></div>
+                    </div>
 
-            <a href="javascript:;" class="btn-menu">
-                <div class="line-wrapper">
-                    <div class="btn-menu-line"></div>
-                    <div class="btn-menu-line"></div>
-                    <div class="btn-menu-line"></div>
-                </div>
-            </a>
+                    <div class="nav-links">
+                        <a href="./introduct.html" class="link">레넌을 소개합니다</a>
+                        <a href="https://charliekim0821.github.io/BLC-Web/index.html" class="link">BLC</a>
+                        <a href="./histoy.html" class="link">지나온 길</a>
+                    </div>
+                </nav>
+            </div>
         </Div>
+
+
+
         <div>
             <div class="mainpage panel">
                 <div class="whoisit">레넌이 누구야?</div>
@@ -537,27 +674,59 @@
                             <div class="tel">Tel: 010-6314-9878</div>
                         </div>
                     </div>
+
+                    <div class="sns">
+                        <div class="instagram">
+                            <a href="https://www.instagram.com/gyeom1941/" target="_blank">
+                                <img class="snsimg" src="instagram.png">
+                            </a>
+                        </div>
+                        <div class="faceboot">
+                            <a href="https://www.facebook.com/L.gyeom/" target="_blank">
+                                <img class="snsimg" src="facebook.png">
+                            </a>
+                        </div>
+                        <div class="instagram">
+                            <a href="https://www.youtube.com/channel/UCUyh-WV9GpRSCj2oAoqo5NA" target="_blank">
+                                <img class="snsimg" src="youtubeicon.png">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <script>
-            // 스크롤 자스
-            gsap.registerPlugin(ScrollTrigger);
+    </div>
+    <script>
+        var menuBtn = document.querySelector('.menu-btn');
+        var nav = document.querySelector('nav');
+        var lineOne = document.querySelector('nav .menu-btn .line--1');
+        var lineTwo = document.querySelector('nav .menu-btn .line--2');
+        var lineThree = document.querySelector('nav .menu-btn .line--3');
+        var link = document.querySelector('nav .nav-links');
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+            lineOne.classList.toggle('line-cross');
+            lineTwo.classList.toggle('line-fade-out');
+            lineThree.classList.toggle('line-cross');
+            link.classList.toggle('fade-in');
+        })
+        // 스크롤 자스
+        gsap.registerPlugin(ScrollTrigger);
 
-            gsap.utils.toArray(".panel").forEach((panel, i) => {
-                ScrollTrigger.create({
-                    trigger: panel,
-                    start: "top top",
-                    pin: true,
-                    pinSpacing: false
-                });
-            });
-
-
+        gsap.utils.toArray(".panel").forEach((panel, i) => {
             ScrollTrigger.create({
-                snap: 1 / 4 // snap whole page to the closest section!
+                trigger: panel,
+                start: "top top",
+                pin: true,
+                pinSpacing: false
             });
-        </script>
+        });
+
+
+        ScrollTrigger.create({
+            snap: 1 / 4 // snap whole page to the closest section!
+        });
+    </script>
 </body>
 
 </html>
