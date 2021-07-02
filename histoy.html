@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>history</title>
     <link rel="short icon" href="./favicon.ico">
-    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script> -->
     <style>
         * {
             box-sizing: border-box;
@@ -121,7 +121,6 @@
         }
 
         nav .nav-links {
-            
             position: absolute;
             right: 0;
             top: 0;
@@ -144,7 +143,7 @@
         nav .nav-links .link {
             margin: 20px 0;
             text-decoration: none;
-            font-family: sans-serif;
+            font-family: 'MapoFlowerIsland';
             color: rgba(0, 0, 0, 0.9);
             font-weight: 700;
             text-transform: uppercase;
@@ -234,6 +233,10 @@
         .headmenu_text {
             margin-left: 15px;
             margin-right: 15px;
+            transition: 0.2s;
+        }
+        .headmenu_text:hover {
+            opacity: 50%;
         }
 
         header {
@@ -262,7 +265,7 @@
         .title {
             font-size: 30px;
             margin: auto;
-            margin-bottom: 100px;
+            margin-bottom: 200px;
             margin-top: 200px;
         }
 
@@ -296,8 +299,20 @@
             margin-top: 100px;
         }
 
-        img {
+        .project{
+            display: flex;
             width: 600px;
+            height: 400px;
+            margin: auto;
+        }
+        .imgbox:hover{
+            width: 90%;
+        }
+
+        img {
+            width: 100%;
+            margin: auto;
+            transition:0.2s;
         }
 
         .onetext {
@@ -378,7 +393,7 @@
             flex-direction: row;
             margin: auto;
             margin-top: 100px;
-            margin-bottom: 100px;
+            margin-bottom: 50px;
         }
 
         .myname {
@@ -400,11 +415,12 @@
             margin-bottom: 10px;
         }
         .snsimg{
-            width: 30px;
+            width: 25px;
             color: white;
             margin-left: 1px;
             margin-right: 1px;
         }
+        
     </style>
 </head>
 
@@ -456,13 +472,13 @@
                 </div>
             </div>
             <div class="slider">
-                <div class="y20_3M">
+                <div class="y20_3M ">
                     <div class="nm">2020년 3모듈</div>
-                    <div class="주제중심">
+                    <div class="주제중심 page">
 
                         <div class="oneimg">
-                            <a href="ebook/M3 외유내강 주제중심.pdf" target="_blank">
-                                <img src="./ebook/3M_vegan.png">
+                            <a class="project"href="ebook/M3 외유내강 주제중심.pdf" target="_blank">
+                                <img class="imgbox"src="./ebook/3M_vegan.png">
                             </a>
                         </div>
                         <div class="onetext">
@@ -475,7 +491,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="문제정의">
+                    <div class="문제정의 page">
                         <div class="twotext">
                             <div class="twotitle">문제정의 프로젝트-비정규직 노동자들의 부당한 대우</div>
                             <div class="twocontent">
@@ -484,16 +500,16 @@
                                 <div>과한 일의 양에 비해 휴식시간/공간이 부족하다.</div>
                             </div>
                         </div>
-                        <div class="twoimg">
-                            <a href="ebook/M3 외유내강 문제정의 발표자료.pdf" target="_blank">
-                                <img src="./ebook/3M_worker.png">
+                        <div class="twoimg ">
+                            <a class="project"href="ebook/M3 외유내강 문제정의 발표자료.pdf" target="_blank">
+                                <img class="imgbox"src="./ebook/3M_worker.png">
                             </a>
                         </div>
                     </div>
-                    <div class="개주프">
+                    <div class="개주프 page">
                         <div class="threeimg">
-                            <a href="ebook/레넌 개주프 e북 2020년 3모듈.pdf" target="_blank">
-                                <img src="ebook/3M_motion.png">
+                            <a class="project"href="ebook/레넌 개주프 e북 2020년 3모듈.pdf" target="_blank">
+                                <img class="imgbox"src="ebook/3M_motion.png">
                             </a>
                         </div>
                         <div class="threetext">
@@ -509,10 +525,10 @@
                 </div>
                 <div class="y20_4M">
                     <div class="nm">2020년 4모듈</div>
-                    <div class="주제중심">
+                    <div class="주제중심 page">
                         <div class="oneimg">
-                            <a href="ebook/2020 4M 주제공감 이북.pdf" target="_blank">
-                                <img src="ebook/4M_school.png">
+                            <a class="project"href="ebook/2020 4M 주제공감 이북.pdf" target="_blank">
+                                <img class="imgbox"src="ebook/4M_school.png">
                             </a>
                         </div>
                         <div class="onetext">
@@ -524,7 +540,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="개주프">
+                    <div class="개주프 page">
                         <div class="twotext">
                             <div class="twotitle">개인주제프로젝트-모션그래픽을 만들어보자</div>
                             <div class="twocontent">
@@ -533,16 +549,18 @@
                             </div>
                         </div>
                         <div class="threeimg">
-                            <img src="ebook/gyeom.jpeg">
+                            <a class="project"href="https://www.youtube.com/channel/UCUyh-WV9GpRSCj2oAoqo5NA">
+                            <img class="imgbox"src="ebook/gyeom.jpeg">
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="y21_1M">
                     <div class="nm">2021년 1모듈</div>
-                    <div class="주제중심">
+                    <div class="주제중심 page">
                         <div class="oneimg">
-                            <a href="./ebook/2021.1모듈 주제중심.pdf" target="_blank">
-                                <img src="ebook/2M_culture.png">
+                            <a class="project" href="./ebook/2021.1모듈 주제중심.pdf" target="_blank">
+                                <img class="imgbox"src="ebook/2M_culture.png">
                             </a>
                         </div>
                         <div class="onetext">
@@ -556,7 +574,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="문제정의">
+                    <div class="문제정의 page">
 
                         <div class="twotext">
                             <div class="twotitle">문제정의프로젝트-헌 옷! 의류수거함에 버리면 안되나요?</div>
@@ -567,15 +585,15 @@
                             </div>
                         </div>
                         <div class="twoimg">
-                            <a href="ebook/100up-헌옷! 의류수거함에 버리면 되나요.pdf">
-                                <img src="ebook/2M_cloth.png" target="_blank">
+                            <a class="project"href="ebook/100up-헌옷! 의류수거함에 버리면 되나요.pdf" target="_blank">
+                                <img class="imgbox"src="ebook/2M_cloth.png" >
                             </a>
                         </div>
                     </div>
-                    <div class="개주프">
+                    <div class="개주프 page">
                         <div class="threeimg">
-                            <a href="ebook/기린_레넌_나를 표현하는 로고디자인.pdf" target="_blank">
-                            <img src="ebook/1M_logo.png">
+                            <a class="project"href="ebook/기린_레넌_나를 표현하는 로고디자인.pdf" target="_blank">
+                            <img class="imgbox"src="ebook/1M_logo.png">
                             </a>
                         </div>
                         <div class="threetext">
@@ -619,6 +637,10 @@
         </div>
         
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+
     <script>
         var menuBtn = document.querySelector('.menu-btn');
         var nav = document.querySelector('nav');
@@ -634,21 +656,22 @@
             link.classList.toggle('fade-in');
         })
         // 스크롤 자스
-        gsap.registerPlugin(ScrollTrigger);
+        // gsap.registerPlugin(ScrollTrigger);
 
-        gsap.utils.toArray(".panel").forEach((panel, i) => {
-            ScrollTrigger.create({
-                trigger: panel,
-                start: "top top",
-                pin: true,
-                pinSpacing: false
-            });
-        });
+        const division = gsap.utils.toArray(".page")
 
-
-        ScrollTrigger.create({
-            snap: 1 / 4 // snap whole page to the closest section!
-        });
+        division.forEach((page) => gsap.fromTo(page, {opacity: 0},{
+            // duration: 2,
+            opacity: 1,
+            scrollTrigger: {
+                trigger: page,
+                // markers: true,
+                scrub: 1,
+                // scrollActions: "restart none none reverse",
+                start: "center bottom",
+                end: "center 35%"
+            }
+        }))
     </script>
 </body>
 

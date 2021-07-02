@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="short icon" href="./favicon.ico">
-    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -143,7 +142,7 @@
         nav .nav-links .link {
             margin: 20px 0;
             text-decoration: none;
-            font-family: sans-serif;
+            font-family: 'MapoFlowerIsland';
             color: rgba(0, 0, 0, 0.9);
             font-weight: 700;
             text-transform: uppercase;
@@ -232,6 +231,11 @@
         .headmenu_text {
             margin-left: 15px;
             margin-right: 15px;
+            transition: 0.2s;
+        }
+
+        .headmenu_text:hover {
+            opacity: 50%;
         }
 
         header {
@@ -449,6 +453,10 @@
             flex-direction: column;
             background-color: rgb(223, 221, 221);
         }
+        .health{
+            display: flex;
+            flex-direction: column;
+        }
 
         .healtharea {
             margin: auto;
@@ -493,13 +501,15 @@
             margin-left: 10px;
             line-height: 200%;
         }
-        .sns{
+
+        .sns {
             display: flex;
             flex-direction: row;
             margin: auto;
             margin-bottom: 10px;
         }
-        .snsimg{
+
+        .snsimg {
             width: 30px;
             color: white;
             margin-left: 1px;
@@ -553,7 +563,7 @@
             </div>
             <div class="panel">
                 <div class="secondepage">
-                    <div class="mbti">
+                    <div class="mbti page">
                         <div class="mbtiarea">
                             <img class="mbtiimg" src="./MBTI.png">
                         </div>
@@ -566,7 +576,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hobby">
+                    <div class="hobby page">
                         <div class="hobbytext">
                             <div class="취미">취미</div>
                             <div class="hobbytitle">
@@ -580,7 +590,7 @@
                         </div>
 
                     </div>
-                    <div class="Motto">
+                    <div class="Motto page">
                         <div class="mottoarea">
                             <img class="mottoimg" src="./디엠지.png">
                         </div>
@@ -596,7 +606,7 @@
                     </div>
                 </div>
                 <div class="thirdpage">
-                    <div class="lennon">
+                    <div class="lennon page">
                         <Div class="lennonarea">
                             <img class="lennonimg" src="./Lennon.png">
                         </Div>
@@ -611,7 +621,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="personality">
+                    <div class="personality page">
                         <div class="personalitytext">
                             <div class="성격">성격</div>
                             <div class="personalitytitle">
@@ -629,8 +639,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="fourthpage">
-                    <div class="content">
+                <div class="fourthpage ">
+                    <div class="content page">
                         <div class="contentarea">
                             <img class="contentimg" src="./fight.png">
                         </div>
@@ -645,6 +655,7 @@
                     </div>
                 </div>
                 <div class="fifthpage">
+                    <div class="health page">
                     <div class="healtharea">
                         <img class="healthimg" src="./health.png">
                     </div>
@@ -666,6 +677,7 @@
                         <div>BLC라는 팀을 꾸렸습니다.</div>
                     </div>
                 </div>
+            </div>
                 <div class="contactline">
                     <div class="contact">
                         <div class="myname">레넌</div>
@@ -696,6 +708,10 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+    
     <script>
         var menuBtn = document.querySelector('.menu-btn');
         var nav = document.querySelector('nav');
@@ -711,21 +727,21 @@
             link.classList.toggle('fade-in');
         })
         // 스크롤 자스
-        gsap.registerPlugin(ScrollTrigger);
 
-        gsap.utils.toArray(".panel").forEach((panel, i) => {
-            ScrollTrigger.create({
-                trigger: panel,
-                start: "top top",
-                pin: true,
-                pinSpacing: false
-            });
-        });
+        const division = gsap.utils.toArray(".page")
 
-
-        ScrollTrigger.create({
-            snap: 1 / 4 // snap whole page to the closest section!
-        });
+        division.forEach((page) => gsap.fromTo(page, {opacity: 0},{
+            // duration: 2,
+            opacity: 1,
+            scrollTrigger: {
+                trigger: page,
+                // markers: true,
+                scrub: 1,
+                // scrollActions: "restart none none reverse",
+                start: "center bottom",
+                end: "center 35%"
+            }
+        }))
     </script>
 </body>
 
