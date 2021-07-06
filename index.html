@@ -354,7 +354,6 @@
         .profilepages {
             display: flex;
             margin: auto;
-            justify-self: center;
             margin-right: 60px;
             width: 350px;
             height: 350px;
@@ -462,11 +461,7 @@
             border-radius: 50%;
             transition: 0.2s;
         }
-
-        .blclink {
-            display: none;
-        }
-
+        
         .logoimg {
             margin: auto;
             width: 90%;
@@ -561,41 +556,143 @@
             margin-left: 10px;
             line-height: 200%;
         }
-        .instagram{
+
+        .instagram {
             width: 40px;
         }
 
-        .facebook{
+        .facebook {
             width: 40px;
         }
 
-        .youtube{
+        .youtube {
             width: 40px;
         }
-        .sns{
+
+        .sns {
             display: flex;
             flex-direction: row;
             margin: auto;
         }
-        .snsimg{
+
+        .snsimg {
             width: 25px;
             color: white;
-            
+
         }
-        @media(max-width:900px){
-            .headmenu_text{
+
+        .row_title {
+            display: none;
+            margin: auto;
+            font-size: 50px;
+        }
+
+        @media(max-width:1200px) {
+            .headmenu_text {
                 display: none;
             }
-            .leftpicture{
+
+            .leftpicture {
                 width: 300px;
+                left: 50%;
             }
-            .yellobox{
+
+            .yellobox {
                 width: 300px;
                 height: 300px;
+                left: 10px;
             }
-            .rightpicture{
+
+            .rightpicture {
+                position: relative;
                 width: 300px;
+                margin: auto;
             }
+
+            .title {
+                display: none;
+            }
+
+            .rightbigbox,
+            .leftbigbox {
+                display: none;
+            }
+
+            .row_title {
+                display: flex;
+            }
+
+            .textlinecontent {
+                font-size: 30px;
+            }
+
+            .profiles {
+                display: flex;
+                margin: auto;
+                flex-direction: column;
+                width: 500px;
+                height: 500px;
+            }
+
+            .profilepages {
+                margin: auto;
+
+            }
+
+            .introduct {
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                margin-top: 10px;
+                text-align: center;
+                font-size: 25px;
+            }
+
+            .skill {
+                display: flex;
+                margin: auto;
+                margin-top: 100px;
+            }
+
+            .skilltext {
+                text-align: center;
+                margin: auto;
+                font-size: 20px;
+            }
+
+            .iconimgs {
+                width: 50px;
+                height: 50px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .iconimg{
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .iocnname{
+                margin: auto;
+                font-size: 15px;
+            }
+            .blccontent {
+            display: flex;
+            flex-direction: column;
+        }
+        .blclogo{
+            display: flex;
+            margin: auto;
+        }
+        .content{
+            margin: auto;
+            text-align: center;
+        }
+        .contact{
+            display: flex;
+            flex-direction: column;
+        }
+        .myname{
+            margin: auto;
+        }
         }
     </style>
 </head>
@@ -656,6 +753,7 @@
                     <div>ㅓ</div>
                     <div>ㄴ</div>
                 </div>
+                <div class="row_title">ㄹㅔㄴㅓㄴ</div>
                 <div class="rightbigbox">
                     <div class="rightpicture">
                         <img class="mainimg" src="./rightpicture.png">
@@ -714,7 +812,6 @@
                     <div class="blccontent">
                         <a class="blcweb" href="https://charliekim0821.github.io/BLC-Web/index.html">
                             <div class="blclogodiv">
-                                <div class="blclink">보러가기</div>
                                 <div class="blclogo">
                                     <img class="logoimg" src="./BLC_Logow.png">
                                 </div>
@@ -767,7 +864,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
